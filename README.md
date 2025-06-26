@@ -102,7 +102,7 @@ npm install
 #### Backend (.env file in server directory)
 
 ```env
-MONGODB_URI=mongodb+srv://dogramacialper98:e06IndpiMH2ZzNPy@cluster0.rqiiydc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://dogramacialper98:<db_password>@cluster0.rqiiydc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 PORT=5000
 NODE_ENV=development
 
