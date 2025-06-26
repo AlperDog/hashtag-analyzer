@@ -355,7 +355,7 @@ This project is licensed under the MIT License.
 For support and questions:
 
 - Create an issue in the repository
-- Contact: [dogramacialper98@gmail.com]
+- Contact: dogramacialper98@gmail.com
 - Portfolio: https://alperdog.github.io/portfolio/
 
 ---
