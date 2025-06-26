@@ -1,0 +1,19 @@
+{
+  "name": "hashtag-analyzer",
+  "version": "1.0.0",
+  "description": "Social Media Hashtag Trend Analyzer - Fullstack Portfolio Project",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["hashtag", "trends", "social-media", "analytics", "portfolio"],
+  "author": "Alper Dogan",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
