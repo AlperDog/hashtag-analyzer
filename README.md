@@ -102,7 +102,7 @@ npm install
 #### Backend (.env file in server directory)
 
 ```env
-MONGODB_URI=mongodb+srv://dogramacialper98:e06IndpiMH2ZzNPy@cluster0.rqiiydc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+MONGODB_URI=mongodb+srv://dogramacialper98:<db_password>@cluster0.rqiiydc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 PORT=5000
 NODE_ENV=development
 
@@ -355,9 +355,17 @@ This project is licensed under the MIT License.
 For support and questions:
 
 - Create an issue in the repository
-- Contact: [Your Email]
+- Contact: dogramacialper98@gmail.com
 - Portfolio: https://alperdog.github.io/portfolio/
 
 ---
 
-**Built with ❤️ by Alper Dogan**
+**Built with ❤️ by Alper Dogramaci**
+
+## Troubleshooting
+
+**If you see `Server error. Please try again later.` when opening the project:**
+
+- Make sure you have set up your API keys and other required environment variables in the `.env` file for both the backend and frontend (if needed).
+- Check the `.env.example` or project documentation for the required variables.
+- Restart your servers after updating the `.env` file.

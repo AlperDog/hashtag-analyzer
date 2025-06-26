@@ -168,21 +168,32 @@ router.get("/stats/overview", async (req, res) => {
     const stats = await Hashtag.aggregate([
       {
         $group: {
+          _id: "$category",
+          count: { $sum: 1 },
+          totalMentions: { $sum: "$metrics.mentions" },
+          avgTrendingScore: { $avg: "$trending_score" },
+        },
+      },
+      { $sort: { count: -1 } },
+    ]);
+
+    // Calculate overall stats
+    const overallStats = await Hashtag.aggregate([
+      {
+        $group: {
           _id: null,
           totalHashtags: { $sum: 1 },
           totalMentions: { $sum: "$metrics.mentions" },
           avgTrendingScore: { $avg: "$trending_score" },
-          topCategory: {
-            $top: {
-              n: 1,
-              sortBy: { count: -1 },
-              output: { category: "$_id", count: "$count" },
-              groupBy: "$category",
-            },
-          },
         },
       },
     ]);
+
+    // Get top category
+    const topCategory =
+      stats.length > 0
+        ? { category: stats[0]._id, count: stats[0].count }
+        : null;
 
     const platformStats = await Hashtag.aggregate([
       {
@@ -194,21 +205,13 @@ router.get("/stats/overview", async (req, res) => {
       },
     ]);
 
-    const categoryStats = await Hashtag.aggregate([
-      {
-        $group: {
-          _id: "$category",
-          count: { $sum: 1 },
-          avgTrendingScore: { $avg: "$trending_score" },
-        },
-      },
-      { $sort: { count: -1 } },
-    ]);
-
     res.json({
-      overview: stats[0] || {},
+      overview: {
+        ...(overallStats[0] || {}),
+        topCategory,
+      },
       platforms: platformStats,
-      categories: categoryStats,
+      categories: stats,
     });
   } catch (error) {
     console.error("Error fetching statistics:", error);

@@ -266,7 +266,7 @@ const Dashboard = () => {
           </div>
         ) : (
           <div className="space-y-3">
-            {trending?.slice(0, 5).map((hashtag, index) => (
+            {trending?.data?.slice(0, 5).map((hashtag, index) => (
               <div
                 key={hashtag.hashtag}
                 className="flex items-center justify-between p-3 bg-dark-700 rounded-lg"
